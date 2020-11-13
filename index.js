@@ -3,12 +3,14 @@ document.getElementById("bonhomme").insertAdjacentHTML("afterbegin",'<img id="im
 
 let mots = ["VOITURE", "TELEPHONE", "SAC","REUNION", "POMME", "SOURIS"]
 let mot = mots[Math.floor(Math.random()*6)]
-let armot = mot.split("")
+let arMot = mot.split("")
+
 console.log(mot);
-console.log(armot);
+console.log(arMot);
+
 
 for(let i=0; i < mot.length; i++){
-    document.getElementById("code").insertAdjacentHTML("beforeend",'<span id = "'+i+'"> _ </span>')
+    document.getElementById("code").insertAdjacentHTML("beforeend",'<span> _ </span>')  // si on veut donner des id numéro: id = "'+i+'"
 }
 
 console.log(document.querySelectorAll("button")[0].innerText);
@@ -16,8 +18,10 @@ console.log(document.querySelectorAll("button")[0].innerText);
 document.querySelectorAll("button").forEach(function(button) {
     button.addEventListener("click", function(){
 
-        if(armot.includes(button.innerText) /*se trouve dans la string "mot"*/){
-            alert("ok")
+        // arMot.forEach(element => {});
+
+        if(arMot.includes(button.innerText)){
+            document.querySelectorAll("span")[mot.indexOf(button.innerText)].innerText = button.innerText
         }else{
            document.getElementById("img").setAttribute("src","img/"+(img++)+".png")
         }
