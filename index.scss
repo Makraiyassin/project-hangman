@@ -1,0 +1,44 @@
+body{
+    #jeu{
+
+        width: 70%;
+        margin: auto;
+        display: flex;
+        
+        #bonhomme{
+
+            width: 500px;
+            height: 700px;
+            margin-top: 5%;
+
+        }
+
+        #mot{
+
+            width: 500px;
+            height: 700px;
+            margin: 15%;
+            font-size: 34px;
+
+            #code{
+                text-align: justify;
+            }
+
+            #bouttons{
+            
+                margin-top: 10px;
+    
+                button{
+                    border-radius: 50%;
+                    margin-top: 20px;
+                    text-align: center;
+                    width: 30px;
+                    height: 30px;
+                    background-color: blue;
+                    color: white;
+                }    
+            }
+    
+        }
+    } 
+}
