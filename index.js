@@ -36,9 +36,17 @@ document.querySelectorAll("button").forEach(function(button) {
         }
 
         if(img == 8){
-            document.getElementById("img").setAttribute("src","img/8.png")
-            alert("la partie est terminée")
-            window.location.reload()
+            document.getElementById("bouttons").remove()
+            document.getElementById("img").setAttribute("src","img/7.png")
+            document.getElementById("code").insertAdjacentHTML("afterend",'<div id = "gameOver"><h1 style = "margin: 5px 0px; font-size: 25px"> Vous avez perdu </h1></div>') 
+            document.getElementById("gameOver").insertAdjacentHTML("beforebegin",'<img src="img/8.png">') 
+            document.getElementById("gameOver").insertAdjacentHTML("beforeend",'<h2 style = "margin: 0px; font-size: 20px"> Le mot secret était: '+mot+'</h2>') 
+            document.getElementById("gameOver").insertAdjacentHTML("beforeend",'<button id = "rejouer" style = "text-align: center; background-color: blue; color: white; border-radius: 5%; margin-left: 22%"> Rejouer </button>') 
+            document.getElementById("rejouer").addEventListener("click", function(){
+                window.location.reload()
+            })
+            // alert("la partie est terminée")
+            // window.location.reload()
         }
         
         let answer = "";
@@ -47,9 +55,17 @@ document.querySelectorAll("button").forEach(function(button) {
             answer += document.querySelectorAll("span")[i].innerText
         }
         if (answer == mot) {
-            alert(" Vous avez gagné ! ;) \n Vous avez trouvé le mot " + answer)
-            alert(" Vous avez fait "+(img-1)+" erreur(s)"+"\n Cliquez pour rejouer")
-            window.location.reload()
+            document.getElementById("bouttons").remove()
+            document.getElementById("code").insertAdjacentHTML("afterend",'<div id = "win"><h1 style = "margin: 5px 0px; font-size: 25px"> BRAVO! </h1></div>') 
+            document.getElementById("win").insertAdjacentHTML("beforeend",'<button id = "rejouer" style = "text-align: center; background-color: blue; color: white; border-radius: 5%; margin-left: 22%"> Rejouer </button>') 
+            document.getElementById("rejouer").insertAdjacentHTML("beforebegin",'<img src="img/win.gif" width = "180px"> <br>') 
+            document.getElementById("rejouer").addEventListener("click", function(){
+                window.location.reload()
+            })
+
+            // alert(" Vous avez gagné ! ;) \n Vous avez trouvé le mot " + answer)
+            // alert(" Vous avez fait "+(img-1)+" erreur(s)"+"\n Cliquez pour rejouer")
+            // window.location.reload()
         }
         console.log(answer);
     })
